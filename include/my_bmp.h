@@ -26,6 +26,7 @@
 
 #ifndef MY_BMP_H
 #define MY_BMP_H
+
 class my_color
 {
  public:
@@ -821,7 +822,7 @@ class my_bmp
 	      }
 	  }
 	fwrite(l_tmp_content,m_header->get_picture_size(),1,l_file);
-
+	delete[] l_tmp_content;
 	fclose(l_file);
       }
 
