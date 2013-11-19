@@ -20,6 +20,7 @@
 #define MY_BMP_HEADER_H
 #include <assert.h>
 #include <inttypes.h>
+#include <math.h>
 
 namespace lib_bmp
 {
