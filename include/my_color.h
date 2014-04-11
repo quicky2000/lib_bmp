@@ -21,6 +21,7 @@
 
 #include <inttypes.h>
 #include <iomanip>
+#include <iostream>
 
 namespace lib_bmp
 {
@@ -33,6 +34,8 @@ namespace lib_bmp
 		    uint8_t p_B);
 
     bool operator ==(const my_color & p_color)const;
+    bool operator <(const my_color & p_color)const;
+    bool operator >(const my_color & p_color)const;
     bool operator !=(const my_color & p_color)const;
     inline void set_red(uint8_t p_r);
     inline void set_green(uint8_t p_g);
@@ -71,6 +74,58 @@ namespace lib_bmp
       bool my_color::operator ==(const my_color & p_color)const
       {
 	return m_R==p_color.m_R && m_G==p_color.m_G && m_B==p_color.m_B;
+      }
+
+      //----------------------------------------------------------------------------
+      bool my_color::operator <(const my_color & p_color)const
+      {
+	if(m_R < p_color.m_R)
+	  {
+	    return true;
+	  }
+	else if(m_R > p_color.m_R)
+	  {
+	    return false;
+	  }
+	else if(m_G < p_color.m_G)
+	  {
+	    return true;
+	  }
+	else if(m_G > p_color.m_G)
+	  {
+	    return false;
+	  }
+	else if(m_B < p_color.m_B)
+	  {
+	    return true;
+	  }
+	return false;
+      }
+
+      //----------------------------------------------------------------------------
+      bool my_color::operator >(const my_color & p_color)const
+      {
+	if(m_R > p_color.m_R)
+	  {
+	    return true;
+	  }
+	else if(m_R < p_color.m_R)
+	  {
+	    return false;
+	  }
+	else if(m_G > p_color.m_G)
+	  {
+	    return true;
+	  }
+	else if(m_G < p_color.m_G)
+	  {
+	    return false;
+	  }
+	else if(m_B > p_color.m_B)
+	  {
+	    return true;
+	  }
+	return false;
       }
 
       //----------------------------------------------------------------------------

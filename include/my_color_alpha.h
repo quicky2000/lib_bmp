@@ -30,11 +30,44 @@ namespace lib_bmp
     inline my_color_alpha(void);
     inline void display(void)const;
     inline uint8_t get_alpha(void)const;
-
+    bool operator ==(const my_color_alpha & p_color)const;
+    bool operator !=(const my_color_alpha & p_color)const;
+    bool operator <(const my_color_alpha & p_color)const;
   private:
 	uint8_t m_alpha;
   };
 
+  //----------------------------------------------------------------------------
+    bool my_color_alpha::operator ==(const my_color_alpha & p_color)const
+    {
+    return ((my_color)(*this))==(p_color) && m_alpha == p_color.m_alpha;
+    }
+
+  //----------------------------------------------------------------------------
+    bool my_color_alpha::operator !=(const my_color_alpha & p_color)const
+    {
+    return ((my_color)(*this))!=(p_color) || m_alpha != p_color.m_alpha;
+    }
+
+  //----------------------------------------------------------------------------
+  bool my_color_alpha::operator <(const my_color_alpha & p_color)const
+  {
+    if(((my_color)(*this))<(p_color))
+      {
+	return true;
+      }
+    else if(((my_color)(*this))>(p_color))
+      {
+	return false;
+      }
+    else if(m_alpha < p_color.m_alpha)
+      {
+	return true;
+      }
+    return false;
+  }
+
+ 
   //----------------------------------------------------------------------------
   my_color_alpha::my_color_alpha(uint8_t p_R,
 				 uint8_t p_G,
