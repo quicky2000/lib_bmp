@@ -19,6 +19,11 @@
 #ifndef MY_PALETTE_H
 #define MY_PALETTE_H
 
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+
 namespace lib_bmp
 {
   class my_palette
