@@ -30,9 +30,9 @@ namespace lib_bmp
     inline my_color_alpha(void);
     inline void display(void)const;
     inline uint8_t get_alpha(void)const;
-    bool operator ==(const my_color_alpha & p_color)const;
-    bool operator !=(const my_color_alpha & p_color)const;
-    bool operator <(const my_color_alpha & p_color)const;
+    inline bool operator ==(const my_color_alpha & p_color)const;
+    inline bool operator !=(const my_color_alpha & p_color)const;
+    inline bool operator <(const my_color_alpha & p_color)const;
   private:
 	uint8_t m_alpha;
   };

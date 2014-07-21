@@ -33,17 +33,17 @@ namespace lib_bmp
 		    uint8_t p_G,
 		    uint8_t p_B);
 
-    bool operator ==(const my_color & p_color)const;
-    bool operator <(const my_color & p_color)const;
-    bool operator >(const my_color & p_color)const;
-    bool operator !=(const my_color & p_color)const;
+    inline bool operator ==(const my_color & p_color)const;
+    inline bool operator <(const my_color & p_color)const;
+    inline bool operator >(const my_color & p_color)const;
+    inline bool operator !=(const my_color & p_color)const;
     inline void set_red(uint8_t p_r);
     inline void set_green(uint8_t p_g);
     inline void set_blue(uint8_t p_b);
     inline uint8_t get_red(void)const;
     inline uint8_t get_green(void)const;
     inline uint8_t get_blue(void)const;
-    virtual void display(void)const;
+    inline virtual void display(void)const;
     inline virtual ~my_color(void){}
   private:
     uint8_t m_R;

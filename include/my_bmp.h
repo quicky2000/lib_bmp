@@ -49,7 +49,7 @@ namespace lib_bmp
     inline void set_pixel_color(uint32_t p_x,
 				uint32_t p_y,
 				const my_color_alpha &p_color)const;
-    void display_info(void)const;
+    inline void display_info(void)const;
     inline ~my_bmp(void);
   private:
     inline uint32_t get_pixel_index(uint32_t p_x,
@@ -63,7 +63,7 @@ namespace lib_bmp
     inline my_color_alpha & access_pixel(uint32_t p_x,
 					 uint32_t p_y)const;
     inline void create_content(void);
-    void create_palette(FILE *p_file=NULL);
+    inline void create_palette(FILE *p_file=NULL);
 
     my_bmp_header *m_header;
     my_palette *m_palette;
