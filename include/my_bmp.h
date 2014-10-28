@@ -103,7 +103,7 @@ namespace lib_bmp
 
 	  // Create temporary buffer containing code picture content 
 	  uint8_t * l_tmp_content = new uint8_t[m_header->get_picture_size()];
-	  fread(l_tmp_content,m_header->get_picture_size(),1,l_file);
+	  quicky_utils::quicky_C_io::my_fread(l_tmp_content,m_header->get_picture_size(),1,l_file);
 
 	  // Use coded picture to fill the RGB array representing pixels
 	  uint16_t l_nb_bits = m_header->get_nb_bits_per_pixel();

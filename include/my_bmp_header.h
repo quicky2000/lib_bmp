@@ -18,6 +18,8 @@
 */
 #ifndef MY_BMP_HEADER_H
 #define MY_BMP_HEADER_H
+
+#include "quicky_C_io.h"
 #include <assert.h>
 #include <inttypes.h>
 #include <math.h>
@@ -82,21 +84,21 @@ namespace lib_bmp
       {
 	assert(p_file);
 
-	fread(&m_file_type,sizeof(uint8_t),2,p_file);
-	fread(&m_file_size,sizeof(uint32_t),1,p_file);
-	fread(&m_reserved,sizeof(uint32_t),1,p_file);
-	fread(&m_offset,sizeof(uint32_t),1,p_file);
-	fread(&m_remaining_header_size,sizeof(uint32_t),1,p_file);
-	fread(&m_picture_width,sizeof(uint32_t),1,p_file);
-	fread(&m_picture_height,sizeof(uint32_t),1,p_file);
-	fread(&m_nb_plan,sizeof(uint16_t),1,p_file);
-	fread(&m_nb_bits_per_pixel,sizeof(uint16_t),1,p_file);
-	fread(&m_compression,sizeof(uint32_t),1,p_file);
-	fread(&m_picture_size,sizeof(uint32_t),1,p_file);
-	fread(&m_nb_horizontal_pixel_per_meter,sizeof(uint32_t),1,p_file);
-	fread(&m_nb_vertical_pixel_per_meter,sizeof(uint32_t),1,p_file);
-	fread(&m_nb_colour_used,sizeof(uint32_t),1,p_file);
-	fread(&m_nb_important_colors,sizeof(uint32_t),1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint8_t)>(&m_file_type,2,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_file_size,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_reserved,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_offset,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_remaining_header_size,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_picture_width,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_picture_height,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint16_t)>(&m_nb_plan,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint16_t)>(&m_nb_bits_per_pixel,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_compression,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_picture_size,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_nb_horizontal_pixel_per_meter,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_nb_vertical_pixel_per_meter,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_nb_colour_used,1,p_file);
+	quicky_utils::quicky_C_io::my_fread<sizeof(uint32_t)>(&m_nb_important_colors,1,p_file);
 	if(!m_picture_size)
 	  {
 	    m_picture_size = compute_picture_size(m_picture_width,m_picture_height,m_nb_bits_per_pixel);

@@ -19,6 +19,7 @@
 #ifndef MY_PALETTE_H
 #define MY_PALETTE_H
 
+#include "quicky_C_io.h"
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,7 +57,7 @@ namespace lib_bmp
 	    uint8_t l_byte_array[4];
 	    for(uint32_t l_index = 0 ; l_index < p_size; ++l_index)
 	      {
-		fread(l_byte_array,sizeof(uint8_t),4,p_file);
+		quicky_utils::quicky_C_io::my_fread<sizeof(uint8_t)>(l_byte_array,4,p_file);
 		m_colors[l_index] = new my_color_alpha(l_byte_array[2],l_byte_array[1],l_byte_array[0],l_byte_array[3]);
 	      }
 	  }
