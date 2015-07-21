@@ -40,8 +40,9 @@ namespace lib_bmp
 		  uint32_t p_height,
 		  uint32_t p_nb_bits_per_pixel);
     inline my_bmp(const std::string & p_name);
-    inline uint32_t get_width(void)const;
-    inline uint32_t get_height(void)const;
+    inline const uint32_t & get_width(void)const;
+    inline const uint32_t & get_height(void)const;
+    inline const uint16_t & get_nb_bits_per_pixel(void)const;
     static inline uint32_t get_default_palette_size(uint32_t p_nb_bits);
     inline void save(const std::string & p_name)const;
     inline const my_color_alpha & get_pixel_color(uint32_t p_x,
@@ -153,16 +154,22 @@ namespace lib_bmp
 	}
 
       //----------------------------------------------------------------------------
-      uint32_t my_bmp::get_width(void)const
+      const uint32_t & my_bmp::get_width(void)const
       {
 	return m_header->get_width();
       }
 
       //----------------------------------------------------------------------------
-      uint32_t my_bmp::get_height(void)const
+      const uint32_t & my_bmp::get_height(void)const
       {
 	return m_header->get_height();
       }
+
+      //----------------------------------------------------------------------------
+      const uint16_t & my_bmp::get_nb_bits_per_pixel(void)const
+        {
+          return m_header->get_nb_bits_per_pixel();
+        }
 
       //----------------------------------------------------------------------------
       uint32_t my_bmp::get_default_palette_size(uint32_t p_nb_bits)
