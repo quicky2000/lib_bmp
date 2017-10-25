@@ -8,8 +8,7 @@ set(MY_SOURCE_FILES
     include/my_bmp_header.h
     include/my_color.h
     include/my_color_alpha.h
-    include/my_palette.h
-    src/main_lib_bmp.cpp)
+    include/my_palette.h)
 
 # List header directories in project
 set(MY_INCLUDE_DIRECTORIES
