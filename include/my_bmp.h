@@ -44,8 +44,14 @@ namespace lib_bmp
     inline const uint32_t & get_height(void)const;
     inline const uint16_t & get_nb_bits_per_pixel(void)const;
     static inline uint32_t get_default_palette_size(uint32_t p_nb_bits);
-    inline const my_palette & get_palette(void)const;
-    inline void save(const std::string & p_name)const;
+
+      inline
+      const my_palette & get_palette(void) const;
+
+      inline
+      my_palette & get_palette();
+
+      inline void save(const std::string & p_name)const;
     inline const my_color_alpha & get_pixel_color(uint32_t p_x,
 						  uint32_t p_y)const;
     inline void set_pixel_color(uint32_t p_x,
@@ -323,6 +329,14 @@ namespace lib_bmp
 	    m_palette = new my_palette(l_palette_size,p_file);
 	  }
       }
+
+    //----------------------------------------------------------------------------
+    my_palette &
+    my_bmp::get_palette()
+    {
+        if(m_palette) return * m_palette;
+        throw quicky_exception::quicky_logic_exception("Try to access to palette which do not exist",__LINE__,__FILE__);
+    }
 
 }
 #endif // MY_BMP_H

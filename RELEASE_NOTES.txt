@@ -1,6 +1,9 @@
 # For users
 #------------
 
+lib_bmp_v0.5:
+    - Add non-const accessor to palette
+
 lib_bmp_v0.4:
     - Check for missing environment variable
 
@@ -20,6 +23,9 @@ lib_bmp_v0.1:
 
 # Development flow
 #------------------
+
+lib_bmp_v0.5:
+    - None
 
 lib_bmp_v0.4:
     - Check for missing environment variable
