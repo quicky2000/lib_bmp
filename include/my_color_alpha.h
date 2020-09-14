@@ -27,6 +27,9 @@ namespace lib_bmp
   {
     friend std::ostream & operator<<(std::ostream & p_stream,const my_color_alpha & p_color);
   public:
+      inline explicit
+      my_color_alpha(const my_color & p_color);
+
     inline my_color_alpha(uint8_t p_R,uint8_t p_G,uint8_t p_B,uint8_t p_alpha=0);
     inline my_color_alpha(void);
     inline void display(void)const;
@@ -107,6 +110,14 @@ namespace lib_bmp
     p_stream << ", A=" << std::setw(3) << (uint32_t)p_color.m_alpha ;
     return p_stream;
   }
+
+    //-------------------------------------------------------------------------
+    my_color_alpha::my_color_alpha(const my_color & p_color)
+    : my_color(p_color)
+    , m_alpha(0)
+    {
+
+    }
 }
 #endif // MY_COLOR_ALPHA_H
 //EOF
