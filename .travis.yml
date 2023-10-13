@@ -26,7 +26,10 @@ before_install:
   - cd build
 
 script:
-  - generate_makefile lib_bmp
-  - make test
-  - ./bin/lib_bmp.exe
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then generate_makefile lib_bmp; make test; ./bin/lib_bmp.exe; fi
+  - cd $MY_LOCATION; mkdir cmake_build; cd cmake_build
+  - cmake $QUICKY_REPOSITORY/lib_bmp
+  - make
+  - ./lib_bmp
+
 #EOF
